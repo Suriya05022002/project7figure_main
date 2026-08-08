@@ -1,0 +1,45 @@
+{
+  "summary": "Iteration 2 — re-verified previously-fixed backend + all newly-requested frontend changes on the Project 7 Figure landing page. Backend: 7/7 pytest tests pass (previously critical GET /api/applications 500 is now fixed — response model tolerates legacy documents). Frontend: All new changes verified visually and programmatically — logo image removed from Nav/Hero/Footer/MoneyBack (0 img elements in each), Bodoni Moda + Manrope premium fonts applied, 'Only 10 seats per month' heading reduced to 120px (was 240px), '10' stays inline, compensation numbers ₹12-14 / ₹15-18 / ₹18+ each render on a single visual line with LPA inline (verified via bounding-box y-coords), new decorative CreativeSeal renders with 2 SVGs, curved textPath, 60 tick marks, CERTIFIED + 100% + Placement Guarantee labels, and the customer-assets/Gemini_Generated logo URL is NOT fetched by the app (0 network requests). Application form submits end-to-end successfully — success screen + sonner toast appear.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Hero headline",
+        "issues": [
+          "At 1920px viewport, 'A career worthy of' wraps to two lines ('A career worthy' / 'of') due to max-w-[1100px] container. Not a bug (no clipping — descenders on 'y' and 'g' fully visible per the review request) but arguably still not ideal from a typographic standpoint. If the intent was 'A career worthy of' on one line, consider increasing max-width or slightly reducing font-size clamp."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "(Optional cleanup) Remove /app/frontend/src/lib/brand.js — it still exports the old BRAND_LOGO_URL constant referencing customer-assets. Currently unused (nothing imports it), so no runtime impact, but it should be deleted for hygiene since logos have been intentionally removed.",
+    "(Optional polish) Consider widening hero headline container so 'A career worthy of' fits on one line at desktop widths."
+  ],
+  "critical_code_review_comments": [
+    "Nice fix: Application response model in server.py now sets full_name/native_state/etc. defaults to '' with model_config extra='ignore' — this correctly resolves the previous ResponseValidationError on legacy docs missing native_state.",
+    "IntakeAndGuarantee.jsx CreativeSeal is a large inline component (~150 lines) inside the same file. Consider extracting to its own file (e.g. components/site/CreativeSeal.jsx) for readability.",
+    "/app/frontend/src/lib/brand.js is now dead code — a stale reference to the removed logo URL. Delete it (leaving the constant makes the review reviewer/greppers falsely think the logo is still wired).",
+    "Hero component: `max-w-[1100px]` on the h1 combined with `fontSize: clamp(52px, 9.5vw, 152px)` causes 'A career worthy of' to wrap at 1920px viewport. Not clipping, but visually reads as 3 lines instead of the intended 2.",
+    "ApplyForm still has 12 duplicate `field-*` inputs without shared config; consider a form-schema-driven render for maintainability."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "100% (7/7 pytest tests passing)",
+    "frontend": "100% (all review-requested changes verified rendering correctly)"
+  },
+  "test_credentials": "N/A — no auth in this app",
+  "seed_data_creation": "Created TEST_CREATE_ / TEST_MISS_NS_ / TEST_BAD_EMAIL_ / TEST_SHORT_PHONE_ / TEST_NO_GAP_ / TEST_UI_Rahul_Kumar_v2 applications via API + UI during this run. Persist in Mongo; retrievable via GET /api/applications (previous bug is fixed).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All requested iteration-2 changes verified: (1) BRAND_LOGO_URL image is NOT rendered anywhere (0 img elements in nav/hero/footer/money-back; 0 network requests to customer-assets). (2) Fonts are Bodoni Moda (headline) + Manrope (body). (3) Intake heading fontSize=120px at 1920w (was 240px). (4) Compensation tier numbers + LPA render on a single visual line (verified num.bottom vs lpa.bottom within 5px). (5) CreativeSeal renders with 2 SVGs, 1 textPath, 60 line elements, CERTIFIED label, 100%, Placement Guarantee. (6) POST /api/applications and GET /api/applications both return 200. (7) Application form submits with all 12 fields including native_state=Karnataka; apply-success + sonner toast appear. Note: form inputs use data-testid='field-<snake_case_name>' (e.g., field-full_name), NOT 'apply-full-name' — this differs from the review-request spec.",
+  "rca of the issue": "N/A — no issues in this iteration. Prior iteration's GET /api/applications 500 has been correctly resolved by making Application response-model fields default to empty strings with ConfigDict(extra='ignore'), so legacy Mongo documents missing native_state now serialise cleanly."
+}

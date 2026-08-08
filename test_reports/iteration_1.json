@@ -1,0 +1,43 @@
+{
+  "summary": "End-to-end testing of Project 7 Figure landing page + backend applications API. Backend: 6/7 pytest tests pass. One critical bug — GET /api/applications returns 500 due to a legacy MongoDB document missing native_state, breaking Pydantic response validation. Frontend: All required data-testid elements render (hero, USP x4, comp tiers x3, framework x4, services x6, eligibility x7, money-back promise + 3 refund items, logos section with 132 chips). Application form fills, submits successfully (POST /api/applications returns 200 with id, email_sent=false), success screen and toast appear. Nav & Hero apply buttons scroll to apply-section correctly.",
+  "backend_issues": {
+    "critical": [
+      {
+        "endpoint": "GET /api/applications",
+        "issue": "Returns 500 ResponseValidationError when the collection contains a legacy document missing native_state. Server-side traceback: 'field required native_state'. Endpoint is fragile against pre-existing documents and any past submissions created before native_state was added. Fix: use response_model_exclude_unset / None-tolerant fields, or make legacy fields Optional in the response Application model, or filter/skip malformed docs, or perform a one-time DB migration.",
+        "priority": "CRITICAL"
+      }
+    ],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Fix GET /api/applications 500 error caused by legacy MongoDB documents missing native_state. Recommended: (a) make Application response model fields Optional (default '') so legacy docs pass validation, OR (b) run a small startup migration to backfill missing native_state='' on existing docs, OR (c) query with projection/filter to exclude malformed records."
+  ],
+  "critical_code_review_comments": [
+    "server.py: GET /api/applications uses response_model=List[Application] which fails hard on any legacy doc missing a required field. Consider a permissive response model or defensive normalization when reading from Mongo.",
+    "server.py: submitted_at is stored as ISO string but re-parsed to datetime on GET — mixed storage/serialization causes subtle bugs. Consider storing as native BSON datetime.",
+    "ApplyForm.jsx: client validation trims but does not validate email format or phone length — server 422 messages are shown via toast only as generic 'Submission failed' when detail is a list. Consider surfacing field-level errors."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py"
+  ],
+  "success_rate": {
+    "backend": "86% (6/7 pytest tests passing — 1 critical failure on GET /api/applications)",
+    "frontend": "100% (all required components, form submission, scroll behaviors verified)"
+  },
+  "test_credentials": "N/A — no auth in this app",
+  "seed_data_creation": "Created a few TEST_-prefixed applications via POST /api/applications during pytest and 1 via UI (TEST_UI Ravi ...). All persisted to MongoDB but currently NOT retrievable via GET /api/applications due to the legacy-doc 500 bug.",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend has 1 known critical bug: GET /api/applications 500 due to legacy Mongo doc missing native_state. POST /api/applications works fine (200) and email_sent correctly false since RESEND_API_KEY is not set. All 12 payload fields validated. All frontend data-testids from the review request are present and render correctly. Form end-to-end submission works and shows apply-success + sonner toast. hero-apply-btn and nav-apply-btn correctly smooth-scroll to [data-testid=apply-section]. Note: sonner Toaster is mounted at document root (not inside apply-section). Use viewport height 1080 for scroll checks — 4000 makes math misleading.",
+  "rca of the issue": "RCA: MongoDB 'applications' collection has at least one legacy document created before native_state field was added to ApplicationCreate. On GET /api/applications, FastAPI validates every returned doc against the Application response_model, which requires native_state. Missing field on any single doc raises fastapi.exceptions.ResponseValidationError -> HTTP 500 for the whole request. Reproduction: 1) start app 2) call GET /api/applications -> 500 (traceback in /var/log/supervisor/backend.err.log shows 'response, 2, native_state, Field required'). Mitigation: (1) mark native_state (and other newer fields) Optional in the response variant of Application, (2) or add a one-time migration setting native_state='' where missing, (3) or normalize documents in list_applications() before returning."
+}

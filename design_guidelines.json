@@ -1,0 +1,142 @@
+{
+  "theme": "dark",
+  "archetype": "5 (Luxury)",
+  "brand_vibe": "Ultra-premium, elegant, stunning, rich, trustworthy. Editorial luxury meets tech precision.",
+  "colors": {
+    "background": {
+      "primary": "#050505",
+      "secondary": "#0A0A0A",
+      "tertiary": "#121212"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#D1D5DB",
+      "muted": "#9CA3AF"
+    },
+    "accents": {
+      "silver_light": "#F3F4F6",
+      "silver_metallic": "#9CA3AF",
+      "chrome_dark": "#374151"
+    },
+    "gradients": {
+      "silver_foil": "linear-gradient(135deg, #E5E7EB 0%, #9CA3AF 50%, #4B5563 100%)",
+      "text_chrome": "linear-gradient(to right, #FFFFFF, #9CA3AF)"
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond, serif",
+      "weights": ["300", "400", "600", "700"],
+      "style": "Cinematic, editorial, tight tracking"
+    },
+    "body": {
+      "family": "Outfit, sans-serif",
+      "weights": ["300", "400", "500"],
+      "style": "Geometric, highly legible, modern"
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400"],
+      "style": "Used for data, labels, and company chips"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-6xl leading-none tracking-tighter",
+      "h2": "text-4xl md:text-5xl leading-tight tracking-tight",
+      "h3": "text-2xl md:text-3xl leading-snug",
+      "body_large": "text-lg md:text-xl leading-relaxed",
+      "body": "text-base leading-relaxed",
+      "label": "text-xs md:text-sm uppercase tracking-[0.2em]"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32 lg:py-40",
+    "grid_system": "Bento-style grids for features, heavy reliance on negative space, asymmetric alignments."
+  },
+  "surface_strategies": {
+    "glassmorphism": "bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(255,255,255,0.02)]",
+    "metallic_edges": "1px solid border using a silver gradient mask",
+    "cards": "Sharp edges (rounded-none or rounded-sm) to maintain an authoritative, editorial feel."
+  },
+  "motion_and_interaction": {
+    "hover_states": "Subtle brightness increase, text chrome gradient shift on hover, -translate-y-1 on cards.",
+    "scroll_effects": "Slow parallax on abstract backgrounds, text reveals using framer-motion (clip-path or opacity staggered).",
+    "buttons": "Magnetic effect if possible, or a sleek metallic sweep animation on hover."
+  },
+  "media": {
+    "hero_background": {
+      "url": "https://images.pexels.com/photos/13568041/pexels-photo-13568041.jpeg",
+      "description": "Fluid metallic waves texture to be used as a dim, low-opacity background for the hero section."
+    },
+    "abstract_accent_1": {
+      "url": "https://images.unsplash.com/photo-1635151227785-429f420c6b9d",
+      "description": "Wavy lines black and white background for section dividers or specific bento card backgrounds."
+    },
+    "abstract_accent_2": {
+      "url": "https://images.pexels.com/photos/12564248/pexels-photo-12564248.jpeg",
+      "description": "Dark moody metallic conceptual art for the Placement Guarantee or Intake limits section."
+    }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero Section",
+      "design_instructions": "Pure typography focus. H1 'PROJECT 7 FIGURE' using Cormorant Garamond. An overlay of the fluid metallic image (opacity 20%). The tagline 'Transform your career trajectory with GR Networks' Premium Placement Program' in Outfit font. Floating Apply CTA in chrome/white. No human imagery. Include 'data-testid=\"hero-apply-btn\"' on the CTA."
+    },
+    {
+      "id": "compensation",
+      "name": "Target Compensation Outcomes",
+      "design_instructions": "Use a custom SVG-based minimalist line/bar chart or step-ladder visualization (not just text). Show salary tiers: 3yr->12-14LPA, 4yr->15-18LPA, 5yr->18+LPA. Note underneath in mono font: '*Baseline represents realistic minimums'. Use silver accent colors."
+    },
+    {
+      "id": "framework",
+      "name": "4-Step Framework",
+      "design_instructions": "Bento layout (Tetris style). 4 cards: Master the Tech, Perfect Your Pitch, Elevate Your Brand, The Placement Process. Use lucide-react icons rendered elegantly with a metallic drop-shadow or custom SVG abstract geometry for each step."
+    },
+    {
+      "id": "what_you_get",
+      "name": "What You Get (6 Services)",
+      "design_instructions": "Asymmetrical 3x2 grid. Services: ATS resume, Profile optimization, Interview scheduling, Live interview assistance, Salary negotiation, Offer Evaluation. Dark glassmorphism cards with subtle silver borders. Elegant typographic hierarchy."
+    },
+    {
+      "id": "eligibility",
+      "name": "Eligibility Criteria",
+      "design_instructions": "Displayed as a high-end editorial list or a central floating monolith card. 7 bullet points (education, experience, career goals, breaks, employment status, communication, location). Custom silver checkmarks or metallic bullet points."
+    },
+    {
+      "id": "limited_intake",
+      "name": "Limited Intake",
+      "design_instructions": "Massive typography section. '10 CANDIDATES / MONTH' filling the width of the screen. High contrast, pure white text on pitch black. Emphasize exclusivity like a luxury watch drop."
+    },
+    {
+      "id": "guarantee_policy",
+      "name": "Placement Guarantee & Policy",
+      "design_instructions": "A prominent '100% Placement Guarantee' metallic-styled badge or seal (using CSS/SVG). Top MNCs only mentioned in elegant serif. Layout should feel like a legal/certified premium document."
+    },
+    {
+      "id": "money_back",
+      "name": "Money Back Policy",
+      "design_instructions": "Refund eligibility checklist (full completion, A grade in mocks, all rounds exhausted). Use a minimalist, transparent table or list with mono-spaced labels for the checklist criteria. Very clinical and trustworthy."
+    },
+    {
+      "id": "marquee_logos",
+      "name": "MNC Logos Marquee",
+      "design_instructions": "3-4 horizontal lines moving in alternating directions. Use `react-fast-marquee`. NO actual image logos. Use monochrome chip style: `<div className=\"px-6 py-3 border border-white/20 rounded-full text-white/80 font-mono text-sm uppercase tracking-[0.15em] whitespace-nowrap\">DELOITTE</div>`. Companies: Deloitte, TCS, KPMG, Accenture, IBM, BOSCH, NTT Data, EY, PWC, Exa AG, Coforge, Schneider Electric, CGI, Capgemini, Roboxa, Datamatics, Now100, Kaar tech, GenPact, HCL Tech, Infosys, Wipro, Birlasoft, Bristlecone, Hitachi, TechM, LTIMindtree, Mphasis, Cognizant, Siemens, Honeywell, Shell, DXC."
+    },
+    {
+      "id": "application_form",
+      "name": "Application Form",
+      "design_instructions": "Shadcn form, completely restyled for luxury. Transparent inputs with only a bottom white/silver border (`border-b border-white/30`), no background, no outline on focus (just brighten the border). Form fields: Full Name, Contact, Email, Degree, Company, CTC, Role, Experience, Notice Period, Career Gap. Submit button with metallic text/bg. Form logic should simulate sending to the7figure.careers@gmail.com. Include 'data-testid=\"application-form\"'."
+    },
+    {
+      "id": "footer",
+      "name": "Footer",
+      "design_instructions": "Massive 'PROJECT 7 FIGURE' typography spanning full width (`text-[10vw]`). Deep black background. Simple legal links and contact info (the7figure.careers@gmail.com). High negative space (`py-32`)."
+    }
+  ],
+  "component_specifics": {
+    "buttons": "Use clear padding (`px-8 py-4`), background pure white, text black for primary CTA. For secondary, transparent background with 1px solid white/30 border. Always include hover transition.",
+    "inputs": "Floating labels or extremely minimalist placeholder text. Pure typography-driven form.",
+    "charts": "If using Recharts, use `#FFFFFF` and `#9CA3AF` as stroke colors. Keep grid lines very faint (`#FFFFFF20`) or remove them entirely for a cleaner look."
+  }
+}

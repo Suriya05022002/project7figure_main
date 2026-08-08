@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"react-fast-marquee": "^1.6.5",
+		"lucide-react": "^1.24.0",
+		"axios": "^1.18.1",
+		"sonner": "^2.0.7"
+	}
+}
