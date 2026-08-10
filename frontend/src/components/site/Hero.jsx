@@ -82,11 +82,13 @@ export const Hero = ({ onApply }) => {
 
         <div className="mt-12 grid lg:grid-cols-12 gap-10 items-end fade-up" style={{ animationDelay: "260ms" }}>
           <div className="lg:col-span-8">
-            <p className="text-lg md:text-xl text-black/70 leading-relaxed font-light max-w-[720px]">
-              An invitation-only, one-month transformation for ambitious IT professionals.
-              Master the in-demand stack, refine your pitch, and land an offer letter
-              from a top MNC in 30 – 45 days — <span className="text-black font-medium">guaranteed.</span>
-            </p>
+            
+           
+<p className="text-lg md:text-xl text-black/70 leading-relaxed font-light max-w-[720px]">
+  An invitation-only, two-month transformation for ambitious professionals.
+  Master the in-demand stack, refine your pitch, and land an offer letter
+  from a top MNC in 30 – 45 days — <span className="text-black font-medium">guaranteed.</span>
+</p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <button data-testid="hero-apply-btn" onClick={onApply} className="btn-primary">

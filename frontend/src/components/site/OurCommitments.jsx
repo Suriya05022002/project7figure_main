@@ -11,7 +11,6 @@ export const OurCommitments = () => {
       tag: "IDENTITY // BASELINE",
       title: "Working hard. Still waiting.",
       desc: "Effort alone doesn't guarantee premium career growth. Without a calculated tactical strategy, high-leverage opportunities routinely pass by unnoticed.",
-      metrics: "Realistic upside: 35% – 50% shift in immediate valuation parameters.",
     },
     {
       num: "02",
@@ -115,8 +114,8 @@ export const OurCommitments = () => {
               <p className="font-mono text-[11px] tracking-wider text-black/60 uppercase flex items-center gap-2 font-bold">
                 <HelpCircle size={12} className="stroke-[2.5]" /> The Diagnosis
               </p>
-              <p className="font-display text-xl text-black font-bold tracking-tight leading-[1.4] pt-1">
-                The problem isn't your potential. It's having the right direction.
+              <p className="font-display text-2xl text-black">
+                Your potential isn’t the problem. Finding the right path is.
               </p>
               <div className="pt-2">
                 <motion.span 
@@ -156,9 +155,14 @@ export const OurCommitments = () => {
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   <div className="flex items-center justify-between md:flex-col md:items-start gap-2 shrink-0">
+                    {/* Switched to font-sans here */}
                     <motion.span 
-                      className={`font-mono text-[32px] font-black leading-none ${
-                        activePillar === idx ? "text-[var(--red-600)]" : "text-black/25"
+                      className={`font-sans text-[32px] font-bold leading-none ${
+                        pillar.num === "01"
+                          ? "text-gray-400"
+                          : activePillar === idx 
+                            ? "text-[var(--red-600)]" 
+                            : "text-black/25"
                       }`}
                       animate={{
                         scale: activePillar === idx ? 1.1 : 1,
@@ -180,19 +184,21 @@ export const OurCommitments = () => {
                       {pillar.desc}
                     </p>
                     
-                    <motion.div 
-                      initial={false}
-                      animate={{
-                        height: activePillar === idx ? "auto" : 0,
-                        opacity: activePillar === idx ? 1 : 0,
-                      }}
-                      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-3 border-t border-black/10 font-mono text-[11px] tracking-wide text-black font-bold bg-black/[0.04] p-2.5 rounded-sm border-l-2 border-[var(--red-600)] leading-[1.6]">
-                        {pillar.metrics}
-                      </div>
-                    </motion.div>
+                    {pillar.metrics && (
+                      <motion.div 
+                        initial={false}
+                        animate={{
+                          height: activePillar === idx ? "auto" : 0,
+                          opacity: activePillar === idx ? 1 : 0,
+                        }}
+                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-3 border-t border-black/10 font-mono text-[11px] tracking-wide text-black font-bold bg-black/[0.04] p-2.5 rounded-sm border-l-2 border-[var(--red-600)] leading-[1.6]">
+                          {pillar.metrics}
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               </motion.div>

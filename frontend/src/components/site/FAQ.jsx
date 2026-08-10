@@ -15,10 +15,10 @@ const FAQ_ITEMS = [
     q: "What if I have career gaps?",
     a: "Career gaps are evaluated individually. Genuine reasons such as higher studies, entrepreneurship, personal commitments, or upskilling are generally not barriers.",
   },
-  {
-    q: "My communication skills are average. Can I still join?",
-    a: "Yes. Technical preparation is only one part of the journey. Mock interviews and continuous guidance help improve professional communication and interview confidence.",
-  },
+  // {
+  //   q: "My communication skills are average. Can I still join?",
+  //   a: "Yes. Technical preparation is only one part of the journey. Mock interviews and continuous guidance help improve professional communication and interview confidence.",
+  // },
   {
     q: "I'm currently in a support project. Am I eligible?",
     a: "Yes. Many professionals transition from support environments into better opportunities through structured preparation.",

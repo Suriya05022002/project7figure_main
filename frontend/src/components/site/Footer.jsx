@@ -107,10 +107,18 @@ export const Footer = ({ onApply }) => {
       </a>
     </div>
 
-    <div className="flex items-center gap-4">
-      <Phone className="text-red-600" size={18} />
-      <span className="text-gray-600">+91 XXXXX XXXXX</span>
-    </div>
+  
+<div className="flex items-center gap-4">
+  <Phone className="text-red-600" size={18} />
+  <div className="flex flex-col text-gray-600">
+    <a href="tel:+919364044833" className="hover:text-red-600 transition">
+      +91 93640 44833
+    </a>
+    <a href="tel:+91XXXXXXXXXX" className="hover:text-red-600 transition">
+      +91 97504 17833 
+    </a>
+  </div>
+</div>
 
     <div className="flex items-center gap-4">
       <MapPin className="text-red-600" size={18} />

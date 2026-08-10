@@ -3,7 +3,7 @@ import { ShieldCheck, Timer, RefreshCcw, Users } from "lucide-react";
 
 const USPS = [
   { icon: ShieldCheck, metric: "100%", label: "Placement Guaranteed", sub: "In top MNCs, exclusively" },
-  { icon: Timer, metric: "30–45", label: "Days to Offer Letter", sub: "From interview process" },
+  { icon: Timer, metric: "30 – 45", label: "Days to Offer Letter", sub: "From interview process" },
   { icon: RefreshCcw, metric: "100%", label: "Money-Back Policy", sub: "Refund on non-placement" },
   { icon: Users, metric: "10", label: "Candidates / Month", sub: "Selective, invitation-only" },
 ];
@@ -70,8 +70,8 @@ export const USPStrip = () => {
                 </div>
 
                 <div className="relative mt-10">
-                  {/* Changed: Added font-sans, antialiased, font-bold, and tracking-tighter for a sharp look */}
-                  <div className="num-display font-sans text-5xl md:text-6xl font-bold tracking-tighter leading-none text-white antialiased">
+                  {/* Changed to font-semibold for a balanced, sleek look */}
+                  <div className="font-sans text-5xl md:text-6xl font-semibold tracking-normal leading-none text-white antialiased">
                     {u.metric}
                   </div>
                   <div className="mt-4 font-display text-xl md:text-2xl text-white/95">

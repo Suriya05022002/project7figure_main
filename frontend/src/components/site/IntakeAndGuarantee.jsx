@@ -67,7 +67,6 @@ export const IntakeAndGuarantee = () => {
             </span>
 
             <span className="serif-italic text-black/85">
-              
                per cohort.
             </span>
           </div>
@@ -81,7 +80,8 @@ export const IntakeAndGuarantee = () => {
           <div className="mt-8 inline-flex items-center gap-3 px-4 py-2 hairline">
             <span className="red-dot" />
 
-            <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-black/70">
+            {/* Changed from font-mono to font-sans */}
+            <span className="font-sans font-bold text-[10px] tracking-[0.28em] uppercase text-black/70">
               Seats filling for next cohort
             </span>
           </div>
@@ -131,15 +131,17 @@ export const IntakeAndGuarantee = () => {
               <div className="mt-8 grid grid-cols-3 gap-6 max-w-[520px]">
                 {[
                   ["Top", "MNCs Only"],
-                  ["30-45", "Days To Offer"],
+                  ["30 - 45", "Days To Offer"],
                   ["1:1", "Mentorship"],
                 ].map(([n, l]) => (
                   <div key={l}>
-                    <div className="num-display text-silver text-3xl md:text-4xl">
+                    {/* Changed number display font style to font-sans font-bold */}
+                    <div className="font-sans font-bold text-silver text-3xl md:text-4xl tracking-tight">
                       {n}
                     </div>
 
-                    <div className="mt-2 font-mono text-[10px] tracking-[0.22em] uppercase text-black/50">
+                    {/* Changed label text from font-mono to font-sans */}
+                    <div className="mt-2 font-sans font-semibold text-[10px] tracking-[0.22em] uppercase text-black/50">
                       {l}
                     </div>
                   </div>
@@ -152,7 +154,8 @@ export const IntakeAndGuarantee = () => {
                   style={{ background: "var(--red-600)" }}
                 />
 
-                <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-black/70">
+                {/* Changed from font-mono to font-sans */}
+                <span className="font-sans font-bold text-[10px] tracking-[0.28em] uppercase text-black/70">
                   Additional job support available separately
                 </span>
               </div>
@@ -165,7 +168,9 @@ export const IntakeAndGuarantee = () => {
       </section>
     </>
   );
-};/* ---------- Creative Seal ---------- */
+};
+
+/* ---------- Creative Seal ---------- */
 
 const CreativeSeal = () => {
   const size = 360;
@@ -209,7 +214,8 @@ const CreativeSeal = () => {
         </defs>
 
         <text
-          fontFamily="'JetBrains Mono', monospace"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          fontWeight="bold"
           fontSize="9"
           letterSpacing="4"
           fill="rgba(192,26,52,.85)"
@@ -295,7 +301,8 @@ const CreativeSeal = () => {
           boxShadow:
             "0 25px 60px rgba(192,26,52,.18), inset 0 2px 0 rgba(255,255,255,.9)",
         }}
-      >        {/* Top Label */}
+      >
+        {/* Top Label */}
         <div className="flex items-center gap-1 mb-1">
           <span
             className="block h-px"
@@ -306,7 +313,8 @@ const CreativeSeal = () => {
             }}
           />
 
-          <span className="font-mono text-[6px] sm:text-[8px] tracking-[0.3em] uppercase text-[var(--red-700)]">
+          {/* Changed from font-mono to font-sans */}
+          <span className="font-sans font-bold text-[6px] sm:text-[8px] tracking-[0.3em] uppercase text-[var(--red-700)]">
             Certified
           </span>
 
@@ -322,7 +330,7 @@ const CreativeSeal = () => {
 
         {/* 100% */}
         <div
-          className="num-display text-crimson leading-none"
+          className="num-display text-crimson leading-none font-sans font-bold"
           style={{
             fontSize: "clamp(48px,11vw,78px)",
             textShadow:

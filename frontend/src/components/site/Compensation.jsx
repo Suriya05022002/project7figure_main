@@ -66,18 +66,25 @@ export const Compensation = () => {
                 </div>
 
                 <div className="relative mt-10">
-                  <div className="font-mono text-[10px] tracking-[0.32em] uppercase text-black/45">
+                  {/* Experience label styled in DARK color (text-black & font-bold) */}
+                  <div className="font-mono text-xs tracking-[0.28em] uppercase text-black font-bold">
                     {t.exp} Experience
                   </div>
+                  
                   <div className="mt-3 flex items-baseline gap-3 flex-wrap">
                     <span
                       className="num-display text-silver leading-none"
-                      style={{ fontSize: "clamp(48px, 5.5vw, 76px)" }}
+                      style={{ 
+                        fontSize: "clamp(48px, 5.5vw, 76px)",
+                        fontFamily: "your-confirmed-font-here, sans-serif" 
+                      }}
                     >
                       ₹{t.range}
                     </span>
-                    <span className="font-mono text-sm tracking-[0.24em] text-black/70">
-                      LPA
+                    
+                    {/* Capitalized "LAKHS / ANNUM" */}
+                    <span className="font-mono text-xl md:text-2xl font-bold tracking-[0.1em] text-black/90 uppercase">
+                      LAKHS / ANNUM
                     </span>
                   </div>
                 </div>
