@@ -55,16 +55,19 @@ export const MoneyBack = () => {
             </span>
           </div>
 
+          {/* Heading - Clean White & Sharp Sans Font */}
           <h2
-            className="huge-type mt-8 text-white"
-            style={{ fontSize: "clamp(48px, 7.5vw, 120px)" }}
+            className="mt-8 text-white font-sans font-bold tracking-tight leading-none"
+            style={{ fontSize: "clamp(40px, 6.5vw, 90px)" }}
           >
             If we don't place you,
             <br />
-            <span className="serif-italic text-crimson">we refund you.</span>
+            <span className="text-white font-sans font-bold tracking-tight">
+              we refund you.
+            </span>
           </h2>
 
-          <p className="mt-8 text-white/75 leading-relaxed text-lg max-w-2xl mx-auto">
+          <p className="mt-8 text-white/75 leading-relaxed text-lg max-w-2xl mx-auto font-sans">
             We are fully invested in your success — and we stand by our process completely.
             This promise is tailored strictly for dedicated professionals who complete the
             journey with us. Bring your commitment. We will deliver your future.
@@ -115,11 +118,13 @@ export const MoneyBack = () => {
                 <div className="font-mono text-[10px] tracking-[0.28em] uppercase text-[#ff8f9f]">
                   We Promise
                 </div>
-                <h3 className="mt-4 font-display text-4xl md:text-5xl text-white leading-tight">
-                  A signed offer{" "}
-                  <span className=" text-crimson">or a full refund.</span>
+                
+                {/* Updated H3 Font */}
+                <h3 className="mt-4 font-sans font-bold text-3xl md:text-4xl text-white tracking-tight leading-snug">
+                  A signed offer <span className="text-white">or a full refund.</span>
                 </h3>
-                <p className="mt-6 text-white/65 leading-relaxed">
+
+                <p className="mt-6 text-white/65 leading-relaxed font-sans">
                   Voluntary or early exits for personal or financial reasons are excluded.
                   Additional Job Support can be availed separately, if required.
                 </p>
@@ -156,7 +161,7 @@ export const MoneyBack = () => {
                 </span>
               </div>
 
-              <p className="mt-6 text-white/60 leading-relaxed text-[15px]">
+              <p className="mt-6 text-white/60 leading-relaxed text-[15px] font-sans">
                 To qualify for a refund under our Money-Back Policy, the following criteria
                 must all be met.
               </p>
@@ -183,7 +188,7 @@ export const MoneyBack = () => {
                       <div className="font-mono text-[10px] tracking-[0.24em] uppercase text-white/40">
                         Criterion {String(i + 1).padStart(2, "0")}
                       </div>
-                      <p className="mt-2 text-white text-[17px] md:text-[18px] leading-relaxed font-display">
+                      <p className="mt-2 text-white text-[17px] md:text-[18px] leading-relaxed font-sans font-medium">
                         {r}
                       </p>
                     </div>

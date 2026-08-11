@@ -29,7 +29,7 @@ export const Framework = () => {
           <div className="hidden lg:block absolute top-[88px] left-[8%] right-[8%] h-px"
                style={{ background: "linear-gradient(90deg, transparent, rgba(192,26,52,0.3), transparent)" }} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {STEPS.map((s, i) => {
               const Icon = s.icon;
               return (

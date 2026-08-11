@@ -9,6 +9,12 @@ export const Hero = ({ onApply }) => {
       className="relative overflow-hidden grain"
       style={{ minHeight: "100vh" }}
     >
+      {/* Google Font Import - Outfit */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet"
+      />
+
       <div aria-hidden className="absolute inset-0 dot-grid opacity-60" />
 
       <div
@@ -54,8 +60,6 @@ export const Hero = ({ onApply }) => {
         }}
       />
 
-      {/* Decorative typographic mark on right */}
-      
       <div className="relative mx-auto max-w-[1480px] px-6 md:px-12 lg:px-16 pt-40 md:pt-44 pb-20">
         <div className="flex items-center gap-4 fade-up">
           <span className="red-dot" />
@@ -66,31 +70,34 @@ export const Hero = ({ onApply }) => {
           <span className="label-eyebrow">GR Networks · Premium Placement Program</span>
         </div>
 
+        {/* HEADLINE WITH OUTFIT FONT (SMALLER SIZE & CAPITAL) */}
         <h1
           data-testid="hero-headline"
-          className="huge-type mt-10 fade-up max-w-[1100px]"
+          className="huge-type mt-8 fade-up max-w-[1100px]"
           style={{
-            fontSize: "clamp(42px, 7.5vw, 152px)",
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: "clamp(32px, 5vw, 84px)",
             animationDelay: "120ms",
-            lineHeight: 0.98,
+            lineHeight: 1.05,
+            textTransform: "uppercase",
           }}
         >
           <span className="text-silver">A career worthy of</span>
           <br />
-          <span className="serif-italic text-crimson">seven figures.</span>
+          <span className="text-crimson" style={{ fontFamily: "'Outfit', sans-serif", textTransform: "uppercase" }}>
+            seven figures.
+          </span>
         </h1>
 
-        <div className="mt-12 grid lg:grid-cols-12 gap-10 items-end fade-up" style={{ animationDelay: "260ms" }}>
+        <div className="mt-10 grid lg:grid-cols-12 gap-10 items-end fade-up" style={{ animationDelay: "260ms" }}>
           <div className="lg:col-span-8">
-            
-           
-<p className="text-lg md:text-xl text-black/70 leading-relaxed font-light max-w-[720px]">
-  An invitation-only, two-month transformation for ambitious professionals.
-  Master the in-demand stack, refine your pitch, and land an offer letter
-  from a top MNC in 30 – 45 days — <span className="text-black font-medium">guaranteed.</span>
-</p>
+            <p className="text-lg md:text-xl text-black/70 leading-relaxed font-light max-w-[720px]">
+              An invitation-only, two-month transformation for ambitious professionals.
+              Master the in-demand stack, refine your pitch, and land an offer letter
+              from a top MNC in 30 – 45 days — <span className="text-black font-medium">guaranteed.</span>
+            </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <button data-testid="hero-apply-btn" onClick={onApply} className="btn-primary">
                 Claim Your Seat
                 <ArrowDownRight size={16} strokeWidth={1.5} />
@@ -103,7 +110,7 @@ export const Hero = ({ onApply }) => {
           </div>
         </div>
 
-        <div className="mt-24 flex items-center gap-3 text-black/40">
+        <div className="mt-20 flex items-center gap-3 text-black/40">
           <div
             className="w-px h-12"
             style={{ background: "linear-gradient(to bottom, var(--red-600), transparent)" }}

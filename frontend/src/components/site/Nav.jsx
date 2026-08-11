@@ -20,27 +20,29 @@ export const Nav = ({ onApply }) => {
         borderBottom: scrolled ? "1px solid rgba(10,10,10,0.08)" : "1px solid transparent",
       }}
     >
-      <div className="mx-auto max-w-[1480px] px-6 md:px-12 lg:px-16 flex items-center justify-between py-4">
-       
-          <div className="flex items-center gap-3">
- 
-  <img
-    src="/logo.png"
-    alt="Project 7 Figure"
-    className="w-10 h-10 object-contain"
-  />
+      {/* Changed: px-3 sm:px-6 for tighter mobile padding */}
+      <div className="mx-auto max-w-[1480px] px-3 sm:px-6 md:px-12 lg:px-16 flex items-center justify-between py-3 md:py-4">
+        
+        {/* Changed: gap-2 on mobile */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <img
+            src="/logo.png"
+            alt="Project 7 Figure"
+            /* Changed: Responsive sizing for mobile vs desktop */
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
+          />
           <div className="flex flex-col leading-tight">
-           <span className="mt-2 font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-black">
-    Project 7 Figure
-  </span>
+            {/* Changed: Mobile-la text size reduced so it doesn't push the button */}
+            <span className="font-mono text-[14px] sm:text-[18px] md:text-[22px] font-semibold tracking-[0.1em] sm:tracking-[0.15em] uppercase text-black">
+              Project 7 Figure
+            </span>
 
-  <span className="font-mono text-[9px] tracking-[0.28em] uppercase text-black/60">
-    GR Networks
-  </span>
-</div>
+            {/* Changed: Mobile-la subtext proportionated appropriately */}
+            <span className="font-mono text-[10px] sm:text-[13px] md:text-[18px] tracking-[0.2em] sm:tracking-[0.28em] uppercase text-black/60">
+              GR Networks
+            </span>
           </div>
-        
-        
+        </div>
 
         <nav className="hidden md:flex items-center gap-10">
           {[
@@ -61,10 +63,11 @@ export const Nav = ({ onApply }) => {
           ))}
         </nav>
 
+        {/* Changed: Padding fixed for button on smaller screens */}
         <button
           data-testid="nav-apply-btn"
           onClick={onApply}
-          className="btn-primary !py-2.5 !px-5 text-[10px]"
+          className="btn-primary !py-2 !px-3 sm:!py-2.5 sm:!px-5 text-[9px] sm:text-[10px] whitespace-nowrap"
         >
           Apply Now
         </button>

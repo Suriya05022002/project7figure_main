@@ -80,7 +80,6 @@ export const IntakeAndGuarantee = () => {
           <div className="mt-8 inline-flex items-center gap-3 px-4 py-2 hairline">
             <span className="red-dot" />
 
-            {/* Changed from font-mono to font-sans */}
             <span className="font-sans font-bold text-[10px] tracking-[0.28em] uppercase text-black/70">
               Seats filling for next cohort
             </span>
@@ -128,25 +127,25 @@ export const IntakeAndGuarantee = () => {
                 employer expectations.
               </p>
 
-              <div className="mt-8 grid grid-cols-3 gap-6 max-w-[520px]">
-                {[
-                  ["Top", "MNCs Only"],
-                  ["30 - 45", "Days To Offer"],
-                  ["1:1", "Mentorship"],
-                ].map(([n, l]) => (
-                  <div key={l}>
-                    {/* Changed number display font style to font-sans font-bold */}
-                    <div className="font-sans font-bold text-silver text-3xl md:text-4xl tracking-tight">
-                      {n}
-                    </div>
+             
+             <div className="mt-8 grid grid-cols-3 gap-4 sm:gap-6 max-w-[580px]">
+  {[
+    ["Top MNCs", "Only"],
+    ["30 - 45", "Days To Offer"],
+    ["1:1", "Mentorship"],
+  ].map(([n, l]) => (
+    <div key={l}>
+      {/* Reduced desktop font size slightly to fit cleanly */}
+      <div className="font-sans font-bold text-silver text-xl sm:text-2xl md:text-3xl tracking-tight leading-tight whitespace-nowrap">
+        {n}
+      </div>
 
-                    {/* Changed label text from font-mono to font-sans */}
-                    <div className="mt-2 font-sans font-semibold text-[10px] tracking-[0.22em] uppercase text-black/50">
-                      {l}
-                    </div>
-                  </div>
-                ))}
-              </div>
+      <div className="mt-2 font-sans font-semibold text-[10px] tracking-[0.22em] uppercase text-black/50">
+        {l}
+      </div>
+    </div>
+  ))}
+</div>
 
               <div className="mt-8 inline-flex items-center gap-3 px-4 py-2 hairline">
                 <span
@@ -154,7 +153,6 @@ export const IntakeAndGuarantee = () => {
                   style={{ background: "var(--red-600)" }}
                 />
 
-                {/* Changed from font-mono to font-sans */}
                 <span className="font-sans font-bold text-[10px] tracking-[0.28em] uppercase text-black/70">
                   Additional job support available separately
                 </span>
@@ -243,17 +241,10 @@ const CreativeSeal = () => {
 
           const rad = (angle * Math.PI) / 180;
 
-          const x1 =
-            cx + Math.cos(rad) * inner;
-
-          const y1 =
-            cy + Math.sin(rad) * inner;
-
-          const x2 =
-            cx + Math.cos(rad) * outer;
-
-          const y2 =
-            cy + Math.sin(rad) * outer;
+          const x1 = cx + Math.cos(rad) * inner;
+          const y1 = cy + Math.sin(rad) * inner;
+          const x2 = cx + Math.cos(rad) * outer;
+          const y2 = cy + Math.sin(rad) * outer;
 
           return (
             <line
@@ -313,7 +304,6 @@ const CreativeSeal = () => {
             }}
           />
 
-          {/* Changed from font-mono to font-sans */}
           <span className="font-sans font-bold text-[6px] sm:text-[8px] tracking-[0.3em] uppercase text-[var(--red-700)]">
             Certified
           </span>

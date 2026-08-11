@@ -50,23 +50,21 @@ export const SectionHeader = ({
         </span>
       </div>
 
-      {/* Heading */}
+      {/* Heading - Clamp Font set to 40px minimum */}
       <h2
-        className={`mt-6 font-['Sora'] font-bold leading-[0.95] tracking-[-0.04em] ${
+        className={`mt-6 font-['Sora'] font-bold leading-[1.08] tracking-[-0.04em] ${
           onDark ? "text-white" : "text-black"
         }`}
         style={{
-          fontSize: "clamp(42px,6vw,84px)",
+          fontSize: "clamp(40px, 7vw, 84px)",
         }}
       >
-        {title}
-
+        {title}{" "}
         {italicTitle && (
           <>
             <br className="hidden md:inline" />
-
             <span
-              className="italic font-medium"
+              className="italic font-medium inline-block md:inline"
               style={{
                 color: onDark
                   ? "rgba(255,255,255,0.75)"
@@ -82,7 +80,7 @@ export const SectionHeader = ({
       {/* Description */}
       {kicker && (
         <p
-          className="mt-7 font-['Inter'] text-[18px] md:text-[20px] leading-9 max-w-[700px]"
+          className="mt-6 font-['Inter'] text-[16px] md:text-[20px] leading-relaxed md:leading-9 max-w-[700px]"
           style={{
             color: onDark
               ? "rgba(255,255,255,0.70)"
